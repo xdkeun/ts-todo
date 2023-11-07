@@ -8,11 +8,12 @@ interface ListProps {
   todo: Todo[];
 }
 const Add: React.FC<ListProps> = ({ todo, setTodo }) => {
-  const [title, setTitle] = useState<string>("");
+  const [content, setContent] = useState<string>("");
   const todoAddHandler = () => {
-    if (title !== "") {
-      setTodo([...todo, { id: todo.length, title: title }]);
-      setTitle("");
+    if (content !== "") {
+      const maxId = Math.max(...todo.map((todoItem) => todoItem.id), 0);
+      setTodo([...todo, { id: maxId + 1, content: content }]);
+      setContent("");
     }
   };
   return (
@@ -20,9 +21,9 @@ const Add: React.FC<ListProps> = ({ todo, setTodo }) => {
       <Input
         type="text"
         placeholder="할 일"
-        value={title}
+        value={content}
         onChange={(e) => {
-          setTitle(e.target.value);
+          setContent(e.target.value);
         }}
       />
       <Plus icon={faPlus} onClick={todoAddHandler} />
@@ -36,6 +37,7 @@ const Layout = styled.div`
   align-items: center;
   border-bottom: 1px solid #111111;
   padding-bottom: 10px;
+  margin-bottom: 10px;
 `;
 
 const Input = styled.input`
@@ -49,5 +51,6 @@ const Plus = styled(FontAwesomeIcon)`
   color: white;
   border-radius: 50%;
   padding: 10px;
+  font-size: 20px;
 `;
 export default Add;
