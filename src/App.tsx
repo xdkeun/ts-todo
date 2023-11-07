@@ -15,7 +15,7 @@ const App: React.FC = () => {
       <Section>
         <Header length={todo.length} />
         <Add setTodo={setTodo} todo={todo} />
-        <List todo={todo} setTodo={setTodo}/>
+        <List todo={todo} setTodo={setTodo} />
       </Section>
     </Layout>
   );
@@ -31,7 +31,7 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 500px;
   height: 100vh;
   padding: 20px 0;
   border-radius: 10px;
