@@ -35,18 +35,34 @@ const List: React.FC<ListProps> = ({ setTodo, todo }) => {
   );
 };
 
-const Section = styled.section``;
+const Section = styled.section`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+`;
 
 const Article = styled.article`
   display: flex;
   gap: 10px;
   align-items: center;
   font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #d9d9d9;
 `;
 
-const Content = styled.p``;
+const Content = styled.p`
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
 const Icon = styled(FontAwesomeIcon)`
   cursor: pointer;
+  &:hover {
+    color: red;
+  }
 `;
 export default List;

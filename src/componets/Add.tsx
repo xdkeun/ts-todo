@@ -38,6 +38,7 @@ const Layout = styled.div`
   border-bottom: 1px solid #111111;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  width: 400px;
 `;
 
 const Input = styled.input`
